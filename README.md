@@ -53,23 +53,6 @@ while True:
    - Якщо символи різні, рядок не є паліндромом.
 4. Якщо всі пари символів однакові, рядок є паліндромом.
 
-### Реалізація:
-
-```
-from collections import deque
-
-def is_palindrome(input_string):
-    # Видалення пробілів і переведення в нижній регістр
-    cleaned_string = input_string.replace(" ", "").lower()
-    
-    # Створення двосторонньої черги
-    dq = deque(cleaned_string)
-    
-    while len(dq) > 1:
-        if dq.popleft() != dq.pop():
-            return False
-    return True
-```
 ### Приклад використання:
 ```
 result = is_palindrome("A man a plan a canal Panama")
@@ -91,24 +74,6 @@ print(result)  # Виведе: False
     - Якщо це закриваюча дужка, перевіряється, чи є відповідна відкрита дужка на вершині стека. Якщо це так, дужка знімається з стека.
     - Якщо немає відповідної відкритої дужки або дужка неправильно закрита, рядок вважається несиметричним.
 4. Після обробки всього рядка стек повинен бути порожнім, щоб всі відкриті дужки були правильно закриті.
-
-### Реалізація:
-
-```
-def check_brackets_balance(input_string):
-    stack = []
-    pairs = {')': '(', ']': '[', '}': '{'}
-    
-    for char in input_string:
-        if char in '({[':
-            stack.append(char)
-        elif char in ')}]':
-            if not stack or stack[-1] != pairs[char]:
-                return "Несиметрично"
-            stack.pop()
-    
-    return "Симетрично" if not stack else "Несиметрично"
-```
 
 ### Приклад використання:
 
